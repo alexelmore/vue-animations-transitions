@@ -1,7 +1,15 @@
 <template>
   <div class="container">
-    <div class="block"></div>
-    <button>Animate</button>
+    <font-awesome-icon
+      :class="{
+        animate: animatedBlock,
+        'block-color-animation': animatedBlock,
+      }"
+      class="vue-block"
+      icon="fa-brands fa-vuejs"
+    />
+
+    <button @click="doAnimation">Animate</button>
   </div>
   <base-modal @close="hideDialog" v-if="dialogIsVisible">
     <p>This is a test dialog!</p>
@@ -10,12 +18,15 @@
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
   </div>
-</template>  
+</template>
 
 <script>
 export default {
   data() {
-    return { dialogIsVisible: false };
+    return {
+      dialogIsVisible: false,
+      animatedBlock: false,
+    };
   },
   methods: {
     showDialog() {
@@ -23,6 +34,14 @@ export default {
     },
     hideDialog() {
       this.dialogIsVisible = false;
+    },
+    doAnimation() {
+      this.animatedBlock = !this.animatedBlock;
+    },
+    reset() {
+      setTimeout(() => {
+        this.animatedBlock = false;
+      }, 2000);
     },
   },
 };
@@ -58,6 +77,14 @@ button:active {
   background-color: #290033;
   margin-bottom: 2rem;
 }
+.vue-block {
+  background-color: #41b883;
+  width: 8rem;
+  height: 8rem;
+  margin-bottom: 2rem;
+  border: 4px solid black;
+  border-radius: 3px;
+}
 .container {
   max-width: 40rem;
   margin: 2rem auto;
@@ -68,5 +95,48 @@ button:active {
   padding: 2rem;
   border: 2px solid #ccc;
   border-radius: 12px;
+}
+
+.animate {
+  position: relative;
+  animation: animate 2.5s cubic-bezier(0.37, 0, 0.63, 1) 0s infinite normal forwards;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    background-color: #34495e;
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+
+  10% {
+    transform: rotate(8deg);
+    background-color: #41b883;
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-10deg);
+    background-color: gold;
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(10deg);
+    background-color: rgb(219, 255, 18);
+  }
+
+  80% {
+    transform: rotate(-8deg);
+    background-color: rgb(144, 255, 18);
+  }
+
+  90% {
+    transform: rotate(8deg);
+    background-color: rgb(18, 255, 18);
+  }
 }
 </style>
