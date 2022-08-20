@@ -4,9 +4,13 @@
       <!--
          The Transition component is a built-in Vue Component that, when applied, adds and removes extra CSS "enter" utility classes to the element that it is wrapping, which allow the dev to animate said element's appearance when it mounts the DOM
       -->
-      <transition name="text">
-        <p v-show="paragraphVisability">This is only sometime visable</p>
-      </transition>
+
+      <div style="min-height: 55px; min-width: 210px">
+        <transition name="text">
+          <p v-show="paragraphVisability">This is only sometime visable</p>
+        </transition>
+      </div>
+
       <!-- 
         Similarly, after the element that is being wrapped by Vue's Transition component un-mounts the DOM, the Transition component adds and removes extra CSS utility "leave" classes to the element that it is wrapping, which allow the dev to animate said element's removal from the DOM
       -->

@@ -39,21 +39,33 @@ dialog {
   border: none;
 }
 .modal-enter-active {
-  animation: modal 0.3s ease-out;
+  animation: modal-arrive 1s ease 0s 1 normal forwards;
 }
 
 .modal-leave-active {
-  animation: modal 0.3s ease-in reverse;
+  animation: modal-exit 1s ease 0s 1 normal forwards;
 }
-@keyframes modal {
-  from {
+
+@keyframes modal-arrive {
+  0% {
     opacity: 0;
-    transform: translateY(-50px) scale(0.9);
+    transform: rotate(-540deg) scale(0);
   }
 
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: rotate(0) scale(1);
+  }
+}
+@keyframes modal-exit {
+  0% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(-540deg) scale(0);
   }
 }
 </style>
