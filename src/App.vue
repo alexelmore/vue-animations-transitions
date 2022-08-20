@@ -127,31 +127,14 @@ button:active {
 }
 
 /* Default CSS utility classes added by Vue's Transition Component when the element that it is wrapping first gets added to the DOM */
-/* .v-enter-from {
-  opacity: 0;
-  transform: rotateX(-100deg);
-} */
+
 .text-enter-active {
   animation: textin 0.3s ease-out;
 }
-/* .v-enter-to {
-  opacity: 1;
-  transform: rotateX(0deg);
-} */
 
-/* Default CSS utility classes added by Vue's Transition Component when the element that it is wrapping gets removed from the DOM */
-
-/* .v-leave-from {
-  opacity: 1;
-  transform: rotateX(0deg);
-} */
 .text-leave-active {
   animation: textout 0.3s ease-out;
 }
-/* .v-leave-to {
-  opacity: 0;
-  transform: rotateX(-100deg);
-} */
 
 /* Animation for Vue logo box */
 @keyframes animate {
